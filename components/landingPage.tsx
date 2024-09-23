@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+
 import { Button } from "@/components/ui/button"
 import { StarIcon } from "lucide-react"
 import { motion } from 'framer-motion'
@@ -8,15 +8,6 @@ import { useRouter } from 'next/navigation';
 
 export default function LandingPage() {
     const router = useRouter();
-    const [isScrolled, setIsScrolled] = useState(false)
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10)
-        }
-        window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
 
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden">

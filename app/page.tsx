@@ -1,15 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { ThemeProvider } from "../context/ThemeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLaptopCode, faTrophy, faUsers } from "@fortawesome/free-solid-svg-icons";
-import HeroLogo from "../assets/myHero.jpg"
 import LandingPage from "@/components/landingPage";
 import Footer from "@/components/Footer";
-
+import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 export default function Home() {
   return (
     <ThemeProvider>
@@ -57,7 +55,7 @@ export default function Home() {
   );
 }
 
-function FeatureCard({ title, description, icon }: { title: string; description: string; icon: any }) {
+function FeatureCard({ title, description, icon }: { title: string; description: string; icon: IconDefinition }) {
   return (
     <div
       className="bg-white bg-opacity-10 p-8 rounded-lg shadow-xl flex flex-col items-center text-center hover:scale-105 transition-all duration-300"

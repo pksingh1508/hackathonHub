@@ -8,11 +8,10 @@ import { useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs"; // Add this import
 import { useEffect, useState } from "react";
-import { Divide } from "lucide-react";
 
 export default function Navbar() {
     const router = useRouter();
-    const { isLoaded, isSignedIn, user } = useUser();
+    const { isLoaded, isSignedIn } = useUser();
 
     const [isScrolled, setIsScrolled] = useState(false)
 
