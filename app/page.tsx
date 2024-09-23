@@ -1,101 +1,70 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import Navbar from "../components/Navbar";
+import { ThemeProvider } from "../context/ThemeContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLaptopCode, faTrophy, faUsers } from "@fortawesome/free-solid-svg-icons";
+import HeroLogo from "../assets/myHero.jpg"
+import LandingPage from "@/components/landingPage";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <ThemeProvider>
+      <div>
+        <Navbar />
+        <LandingPage />
+        <main className="min-h-screen  bg-[#070808] text-white dark:bg-gray-900 dark:text-white">
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4 py-16 max-w-6xl"
+          >
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            <motion.section
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+              className="text-center"
+            >
+              <h2 className="text-4xl font-semibold mb-12">Why Choose Us?</h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                <FeatureCard
+                  title="Online & Offline Events"
+                  description="Participate from anywhere or join us in person!"
+                  icon={faLaptopCode}
+                />
+                <FeatureCard
+                  title="Exciting Prizes"
+                  description="Win cash prizes and other cool rewards!"
+                  icon={faTrophy}
+                />
+                <FeatureCard
+                  title="Networking Opportunities"
+                  description="Connect with like-minded developers and industry experts."
+                  icon={faUsers}
+                />
+              </div>
+            </motion.section>
+          </motion.div>
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
+  );
+}
+
+function FeatureCard({ title, description, icon }: { title: string; description: string; icon: any }) {
+  return (
+    <div
+      className="bg-white bg-opacity-10 p-8 rounded-lg shadow-xl flex flex-col items-center text-center hover:scale-105 transition-all duration-300"
+    >
+      <FontAwesomeIcon icon={icon} className="text-4xl mb-4 text-[#30c6f1] transform hover:-rotate-12 transition-all duration-300" />
+      <h3 className="text-2xl font-semibold mb-4">{title}</h3>
+      <p className="text-lg">{description}</p>
     </div>
   );
 }
