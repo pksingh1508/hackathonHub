@@ -12,12 +12,12 @@ export default function LandingPage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden">
             {/* Dotted background */}
-            <div className="fixed inset-0 z-0 opacity-20">
+            {/* <div className="fixed inset-0 z-0 opacity-20">
                 <div className="absolute inset-0" style={{
                     backgroundImage: `radial-gradient(circle, #ffffff 1px, transparent 1px)`,
                     backgroundSize: '30px 30px'
                 }}></div>
-            </div>
+            </div> */}
 
 
             <main className="container mx-auto px-4 pt-40 pb-20 text-center relative z-10">
