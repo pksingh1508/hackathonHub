@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { CalendarIcon, GlobeAltIcon, UserGroupIcon, CurrencyDollarIcon, ClockIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
@@ -8,6 +8,7 @@ import Footer from '@/components/Footer'
 import { useUser } from '@clerk/nextjs'
 import { useToast } from '@/hooks/use-toast'
 import { useRouter } from 'next/navigation'
+import axios from 'axios'
 
 const hackathon = {
     title: "HackAI - Dell and NVIDIA Challenge",
@@ -78,9 +79,11 @@ const AnimatedSection = ({ title, children }: { title: string, children: React.R
 }
 
 export default function HackathonPage() {
-    const { isSignedIn } = useUser();
+    const { isSignedIn, user } = useUser();
+    const [isRegistered, setIsRegistered] = useState(false);
     const { toast } = useToast();
     const router = useRouter();
+    const email = user?.primaryEmailAddress?.emailAddress;
 
     const handleRegister = () => {
         if (!isSignedIn) {
@@ -94,6 +97,23 @@ export default function HackathonPage() {
             router.push("/register");
         }
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.post(`/api/get-user`, {
+                    params: { email: email }
+                });
+                console.log("response", response);
+                if (response.status === 200) {
+                    setIsRegistered(true);
+                }
+            } catch (err) {
+                console.log("error", err);
+            }
+        }
+        fetchData();
+    }, [])
 
     return (
         <div className="bg-gradient-to-br from-black/50 to-black/80 min-h-screen text-black/80">
@@ -228,14 +248,28 @@ export default function HackathonPage() {
                                     ))}
                                 </div>
                             </div>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 text-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition duration-300"
-                                onClick={handleRegister}
-                            >
-                                Register Now
-                            </motion.button>
+                            {
+                                isRegistered ?
+                                    (<>
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 text-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition duration-300 cursor-none"
+                                        >
+                                            Registered
+                                        </motion.button>
+                                    </>) :
+                                    (<>
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 text-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition duration-300"
+                                            onClick={handleRegister}
+                                        >
+                                            Register Now
+                                        </motion.button>
+                                    </>)
+                            }
                         </motion.div>
                     </div>
                 </div>

@@ -1,166 +1,144 @@
 "use client"
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import axios from "axios"
+import { useUser } from "@clerk/nextjs"
+import { toast } from "@/hooks/use-toast"
+import { useRouter } from "next/navigation"
 
-export default function RegistrationForm() {
-    const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        teamName: '',
-        projectIdea: '',
-        skillLevel: '',
-        tShirtSize: '',
-    })
+export default function HackathonRegistration() {
+    const [currentStep, setCurrentStep] = useState(1)
+    const { user } = useUser();
+    const email = user?.primaryEmailAddress?.emailAddress;
+    const router = useRouter();
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value } = e.target
-        setFormData(prevData => ({
-            ...prevData,
-            [name]: value
-        }))
+    const handleRegister = async () => {
+        const response = await axios.post(`/api/register-user`, {
+            email: email,
+            status: true
+        })
+        if (response.status === 200) {
+            toast({
+                variant: "destructive",
+                title: "Registration",
+                description: "You are successfully registered"
+            })
+            router.push('/');
+        }
+        if (response.status === 500) {
+            toast({
+                title: "Registration",
+                description: "Some issue has occurred"
+            })
+        }
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        console.log('Form submitted:', formData)
-        // Here you would typically send the data to your backend
-    }
+    const steps = [
+        {
+            title: "Registration Steps [Follow it Step by Step Otherwise you'll blocked]",
+            content: (
+                <ol className="list-decimal list-inside space-y-2">
+                    <li>Pay the small amount of registration fees and take a screenshot of it.</li>
+                    <li>Fill the Google form provided with screenshot.</li>
+                    <li>Register in the hackathon.</li>
+                </ol>
+            ),
+        },
+        {
+            title: "Pay Registration Fee",
+            content: (
+                <div className="text-center">
+                    <Button onClick={() => alert("Redirecting to payment gateway...")}>
+                        Pay Registration Fee
+                    </Button>
+                </div>
+            ),
+        },
+        {
+            title: "Fill Google Form",
+            content: (
+                <div className="text-center">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6O1V4vx5uUu2ykkooV2u4KzjzS_OVkPl8D7WtsVMcxkd9-g/viewform?usp=sf_link" target="_blank">
+                        <Button>
+                            Fill the Form
+                        </Button>
+                    </a>
+                </div>
+            ),
+        },
+        {
+            title: "Complete Registration",
+            content: (
+                <div className="text-center">
+                    <Button onClick={handleRegister}>
+                        Register for Hackathon
+                    </Button>
+                </div>
+            ),
+        },
+    ]
+
+    const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, steps.length))
+    const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1))
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-purple-400 to-indigo-600 flex items-center justify-center p-4">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full"
-            >
-                <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Hackathon Registration</h2>
-                <form onSubmit={handleSubmit} className="space-y-6 text-black/80">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                    >
-                        <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input
-                            type="text"
-                            id="fullName"
-                            name="fullName"
-                            value={formData.fullName}
-                            onChange={handleChange}
-                            required
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        />
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                    >
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        />
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                    >
-                        <label htmlFor="teamName" className="block text-sm font-medium text-gray-700">Team Name (Optional)</label>
-                        <input
-                            type="text"
-                            id="teamName"
-                            name="teamName"
-                            value={formData.teamName}
-                            onChange={handleChange}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        />
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.4 }}
-                    >
-                        <label htmlFor="projectIdea" className="block text-sm font-medium text-gray-700">Project Idea (Brief Description)</label>
-                        <textarea
-                            id="projectIdea"
-                            name="projectIdea"
-                            value={formData.projectIdea}
-                            onChange={handleChange}
-                            rows={3}
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        ></textarea>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.5 }}
-                    >
-                        <label htmlFor="skillLevel" className="block text-sm font-medium text-gray-700">Skill Level</label>
-                        <select
-                            id="skillLevel"
-                            name="skillLevel"
-                            value={formData.skillLevel}
-                            onChange={handleChange}
-                            required
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        <div className="min-h-screen bg-gradient-to-br from-primary to-secondary p-4 flex items-center justify-center">
+            <Card className="w-full max-w-3xl">
+                <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-center">
+                        Hackathon Registration
+                    </CardTitle>
+                    <div className="flex justify-center space-x-2 mt-4">
+                        {steps.map((_, index) => (
+                            <motion.div
+                                key={index}
+                                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${index + 1 === currentStep
+                                    ? "bg-primary text-primary-foreground"
+                                    : "bg-muted text-muted-foreground"
+                                    }`}
+                                animate={{
+                                    scale: index + 1 === currentStep ? 1.2 : 1,
+                                }}
+                            >
+                                {index + 1}
+                            </motion.div>
+                        ))}
+                    </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={currentStep}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
                         >
-                            <option value="">Select your skill level</option>
-                            <option value="beginner">Beginner</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="advanced">Advanced</option>
-                        </select>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
+                            <h2 className="text-xl font-semibold mb-4">{steps[currentStep - 1].title}</h2>
+                            {steps[currentStep - 1].content}
+                        </motion.div>
+                    </AnimatePresence>
+                </CardContent>
+                <CardFooter className="flex justify-between">
+                    <Button
+                        onClick={prevStep}
+                        disabled={currentStep === 1}
+                        variant="outline"
                     >
-                        <label htmlFor="tShirtSize" className="block text-sm font-medium text-gray-700">T-Shirt Size</label>
-                        <select
-                            id="tShirtSize"
-                            name="tShirtSize"
-                            value={formData.tShirtSize}
-                            onChange={handleChange}
-                            required
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                        >
-                            <option value="">Select your T-Shirt size</option>
-                            <option value="S">Small</option>
-                            <option value="M">Medium</option>
-                            <option value="L">Large</option>
-                            <option value="XL">X-Large</option>
-                            <option value="XXL">XX-Large</option>
-                        </select>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
+                        <ChevronLeft className="mr-2 h-4 w-4" /> Previous
+                    </Button>
+                    <Button
+                        onClick={nextStep}
+                        disabled={currentStep === steps.length}
                     >
-                        <button
-                            type="submit"
-                            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Register for Hackathon
-                        </button>
-                    </motion.div>
-                </form>
-            </motion.div>
+                        Next <ChevronRight className="ml-2 h-4 w-4" />
+                    </Button>
+                </CardFooter>
+            </Card>
         </div>
     )
 }
