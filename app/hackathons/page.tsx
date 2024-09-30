@@ -27,17 +27,17 @@ interface Hackathon {
 const hackathons: Hackathon[] = [
     {
         id: 1,
-        title: "HackAI - Dell and NVIDIA Challenge",
-        image: "https://i.ibb.co/JWYmMb4/green-Tech.png",
-        daysLeft: 8,
+        title: "Code for Bharat",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 10,
         isOnline: true,
-        prize: 70176,
-        participants: 3830,
-        startDate: "Aug 14, 2024",
-        endDate: "Oct 02, 2024",
-        organizer: "Devpost",
-        tags: ["Machine Learning/AI", "Enterprise", "Productivity"],
-        sponsor: "Dell",
+        prize: 50000,
+        participants: 2000,
+        startDate: "Oct 05, 2024",
+        endDate: "Oct 25, 2024",
+        organizer: "NITI Aayog",
+        tags: ["Civic Tech", "Government", "Social Impact"],
+        sponsor: "Indian Government",
         status: 'upcoming'
     },
     {
@@ -57,20 +57,125 @@ const hackathons: Hackathon[] = [
     },
     {
         id: 3,
-        title: "Green Tech Challenge",
-        image: "https://i.ibb.co/JWYmMb4/green-Tech.png",
-        daysLeft: -5,
+        title: "Digital Dharma Hackathon",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 5,
+        isOnline: true,
+        prize: 30000,
+        participants: 1200,
+        startDate: "Sep 25, 2024",
+        endDate: "Oct 05, 2024",
+        organizer: "Religious Tech Foundation",
+        tags: ["Spirituality", "Tech for Good", "AI"],
+        sponsor: "Art of Living",
+        status: 'finished'
+    },
+    {
+        id: 4,
+        title: "TechMela: Build for Billions",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 15,
+        isOnline: true,
+        prize: 80000,
+        participants: 4000,
+        startDate: "Oct 10, 2024",
+        endDate: "Nov 01, 2024",
+        organizer: "Digital India",
+        tags: ["Scalability", "Consumer Tech", "FinTech"],
+        sponsor: "Reliance Jio",
+        status: 'upcoming'
+    },
+    {
+        id: 5,
+        title: "Jugaad Junction",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 7,
+        isOnline: true,
+        prize: 40000,
+        participants: 1500,
+        startDate: "Sep 30, 2024",
+        endDate: "Oct 10, 2024",
+        organizer: "Startup Village",
+        tags: ["Innovation", "Frugal Tech", "DIY Solutions"],
+        sponsor: "Tata Motors",
+        status: 'upcoming'
+    },
+    {
+        id: 6,
+        title: "Bharat Brain Trust",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 25,
         isOnline: false,
-        prize: 100000,
-        participants: 1000,
-        startDate: "Aug 10, 2024",
-        endDate: "Aug 12, 2024",
-        organizer: "CleanTech Initiative",
-        tags: ["Sustainability", "IoT", "Energy"],
-        sponsor: "Tesla",
+        prize: 90000,
+        participants: 5000,
+        startDate: "Nov 15, 2024",
+        endDate: "Dec 01, 2024",
+        organizer: "IIT Madras",
+        tags: ["AI", "Research", "Deep Tech"],
+        sponsor: "Google Research India",
+        status: 'finished'
+    },
+    {
+        id: 7,
+        title: "Desi Dev Con",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 12,
+        isOnline: false,
+        prize: 70000,
+        participants: 2500,
+        startDate: "Oct 20, 2024",
+        endDate: "Oct 30, 2024",
+        organizer: "Tech Mahindra",
+        tags: ["Software Development", "Open Source", "Community"],
+        sponsor: "Tech Mahindra",
+        status: 'upcoming'
+    },
+    {
+        id: 8,
+        title: "Swadeshi Solutions Sprint",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 30,
+        isOnline: true,
+        prize: 60000,
+        participants: 3000,
+        startDate: "Nov 10, 2024",
+        endDate: "Dec 01, 2024",
+        organizer: "Swadeshi Jagran Manch",
+        tags: ["Local Solutions", "Indigenous Tech", "Made in India"],
+        sponsor: "Make in India",
+        status: 'finished'
+    },
+    {
+        id: 9,
+        title: "Incredible India Innovators",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 20,
+        isOnline: false,
+        prize: 85000,
+        participants: 2200,
+        startDate: "Oct 25, 2024",
+        endDate: "Nov 10, 2024",
+        organizer: "Ministry of Tourism",
+        tags: ["Tourism", "AR/VR", "Cultural Tech"],
+        sponsor: "Incredible India",
+        status: 'upcoming'
+    },
+    {
+        id: 10,
+        title: "Samriddhi Hackathon",
+        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        daysLeft: 5,
+        isOnline: true,
+        prize: 75000,
+        participants: 3000,
+        startDate: "Sep 20, 2024",
+        endDate: "Oct 01, 2024",
+        organizer: "Samriddhi Ventures",
+        tags: ["FinTech", "Blockchain", "Financial Inclusion"],
+        sponsor: "ICICI Bank",
         status: 'finished'
     }
-]
+];
 
 const HackathonCard = ({ hackathon, router }: { hackathon: Hackathon, router: ReturnType<typeof useRouter> }) => (
 
@@ -106,7 +211,7 @@ const HackathonCard = ({ hackathon, router }: { hackathon: Hackathon, router: Re
             <div className={`absolute top-2 left-2 px-2 py-1 rounded-full text-sm font-semibold text-white ${hackathon.status === 'upcoming' ? 'bg-green-500' :
                 hackathon.status === 'ongoing' ? 'bg-blue-500' : 'bg-red-500'
                 }`}>
-                {hackathon.status === 'upcoming' ? `${hackathon.daysLeft} days left` :
+                {hackathon.status === 'upcoming' ? `Coming Soon...` :
                     hackathon.status === 'ongoing' ? 'Ongoing' : 'Finished'}
             </div>
             {hackathon.sponsor && (
@@ -122,7 +227,7 @@ const HackathonCard = ({ hackathon, router }: { hackathon: Hackathon, router: Re
                 <span>{hackathon.isOnline ? 'Online' : 'In-person'}</span>
             </div>
             <div className="flex justify-between text-sm text-gray-600 mb-2">
-                <div>${hackathon.prize.toLocaleString()} in prizes</div>
+                <div>₹ {hackathon.prize.toLocaleString()} in prizes</div>
                 <div>{hackathon.participants.toLocaleString()} participants</div>
             </div>
             <div className="flex items-center text-sm text-gray-600 mb-2">

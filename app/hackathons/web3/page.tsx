@@ -1,50 +1,52 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { CalendarIcon, GlobeAltIcon, UserGroupIcon, CurrencyDollarIcon, ClockIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
+import { CalendarIcon, GlobeAltIcon, UserGroupIcon, CurrencyRupeeIcon, ClockIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Footer from '@/components/Footer'
 import { useUser } from '@clerk/nextjs'
 import { useToast } from '@/hooks/use-toast'
 import { useRouter } from 'next/navigation'
-import axios from 'axios'
+import { useStore } from '@/store/useStore'
 
 const hackathon = {
-    title: "HackAI - Dell and NVIDIA Challenge",
-    tagline: "Develop AI solutions to real-world problems",
+    title: "Web3 Innovation Hackathon",
+    tagline: "Pushing the Boundaries of Decentralized Technology",
     image: "https://i.ibb.co/St3Vwhv/web3.png",
-    description: "Join us for an exciting AI hackathon sponsored by Dell and NVIDIA. Develop innovative AI solutions to tackle real-world challenges and compete for amazing prizes!",
-    startDate: "Aug 14, 2024",
-    endDate: "Oct 02, 2024",
+    description: "Join the Ethereum Foundation's Web3 Innovation Hackathon, where developers and blockchain enthusiasts come together to build the future of decentralized technology. Compete for a chance to win amazing prizes while creating innovative blockchain, DeFi, and cryptocurrency solutions.",
+    startDate: "Sep 01, 2024",
+    endDate: "Sep 15, 2024",
     isOnline: true,
-    prize: 70176,
-    participants: 3830,
-    organizer: "Devpost",
-    sponsors: ["Dell", "NVIDIA"],
+    prize: 50000,
+    participants: 2500,
+    organizer: "Ethereum Foundation",
+    sponsors: ["Ethereum Foundation", "Chainlink", "Consensys"],
     timeline: [
-        { date: "August 14, 2024", event: "Hackathon Begins" },
-        { date: "September 15, 2024", event: "Submission Deadline" },
-        { date: "September 20-30, 2024", event: "Judging Period" },
-        { date: "October 2, 2024", event: "Winners Announced" }
+        { date: "September 1, 2024", event: "Hackathon Begins" },
+        { date: "September 14, 2024", event: "Submission Deadline" },
+        { date: "September 15, 2024", event: "Judging Period" },
+        { date: "September 15, 2024", event: "Winners Announced" }
     ],
     rules: [
-        "All team members should be registered on Devpost",
-        "Teams can consist of 1-4 members",
-        "All code must be written during the hackathon",
-        "Use of open-source libraries is allowed and encouraged"
+        "Participants must register on the Ethereum Foundation platform",
+        "Teams can consist of 1-5 members",
+        "All code must be written during the hackathon period",
+        "Open-source tools and libraries are allowed and encouraged",
+        "Projects must focus on blockchain, DeFi, or cryptocurrency solutions"
     ],
     prizes: [
-        { place: "1st Place", amount: 30000, description: "Cash prize + NVIDIA GPUs" },
-        { place: "2nd Place", amount: 20000, description: "Cash prize + Dell Laptops" },
-        { place: "3rd Place", amount: 10000, description: "Cash prize + AI Software Licenses" }
+        { place: "1st Place", amount: 25000, description: "Cash prize + VIP Ethereum Conference Tickets" },
+        { place: "2nd Place", amount: 15000, description: "Cash prize + Chainlink Credits" },
+        { place: "3rd Place", amount: 10000, description: "Cash prize + Consensys Software Subscriptions" }
     ],
     judges: [
-        { name: "Dr. Jane Smith", role: "AI Research Lead at Dell" },
-        { name: "John Doe", role: "Senior Data Scientist at NVIDIA" },
-        { name: "Alice Johnson", role: "Professor of Computer Science, MIT" }
+        { name: "Vitalik Buterin", role: "Co-Founder of Ethereum" },
+        { name: "Sergey Nazarov", role: "Co-Founder of Chainlink" },
+        { name: "Joseph Lubin", role: "CEO of Consensys" }
     ]
-}
+};
+
 
 const AnimatedSection = ({ title, children }: { title: string, children: React.ReactNode }) => {
     const [isOpen, setIsOpen] = useState(true)
@@ -79,11 +81,10 @@ const AnimatedSection = ({ title, children }: { title: string, children: React.R
 }
 
 export default function HackathonPage() {
-    const { isSignedIn, user } = useUser();
-    const [isRegistered, setIsRegistered] = useState(false);
+    const { isSignedIn } = useUser();
+    const { isRegistered, isSubmitted } = useStore();
     const { toast } = useToast();
     const router = useRouter();
-    const email = user?.primaryEmailAddress?.emailAddress;
 
     const handleRegister = () => {
         if (!isSignedIn) {
@@ -92,28 +93,12 @@ export default function HackathonPage() {
                 title: "Unauthorized",
                 description: "You are not Signed In"
             })
+            router.push("/sign-in");
 
         } else {
             router.push("/register");
         }
     }
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.post(`/api/get-user`, {
-                    params: { email: email }
-                });
-                console.log("response", response);
-                if (response.status === 200) {
-                    setIsRegistered(true);
-                }
-            } catch (err) {
-                console.log("error", err);
-            }
-        }
-        fetchData();
-    }, [])
 
     return (
         <div className="bg-gradient-to-br from-black/50 to-black/80 min-h-screen text-black/80">
@@ -183,10 +168,10 @@ export default function HackathonPage() {
                             <div className="space-y-4 mt-4">
                                 {hackathon.prizes.map((prize, index) => (
                                     <div key={index} className="flex items-center bg-gradient-to-r from-yellow-100 to-yellow-200 p-4 rounded-lg">
-                                        <CurrencyDollarIcon className="h-8 w-8 text-yellow-500 mr-4" />
+                                        <CurrencyRupeeIcon className="h-8 w-8 text-yellow-500 mr-4" />
                                         <div>
                                             <h3 className="font-semibold text-lg">{prize.place}</h3>
-                                            <p className="text-gray-700">${prize.amount.toLocaleString()} - {prize.description}</p>
+                                            <p className="text-gray-700">₹ {prize.amount.toLocaleString()} - {prize.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -226,8 +211,8 @@ export default function HackathonPage() {
                                     <span className="text-lg">{hackathon.isOnline ? 'Online Event' : 'In-person Event'}</span>
                                 </li>
                                 <li className="flex items-center">
-                                    <CurrencyDollarIcon className="h-8 w-8 text-blue-500 mr-4" />
-                                    <span className="text-lg">${hackathon.prize.toLocaleString()} in total prizes</span>
+                                    <CurrencyRupeeIcon className="h-8 w-8 text-blue-500 mr-4" />
+                                    <span className="text-lg">₹ {hackathon.prize.toLocaleString()} in total prizes</span>
                                 </li>
                                 <li className="flex items-center">
                                     <UserGroupIcon className="h-8 w-8 text-blue-500 mr-4" />
@@ -251,13 +236,27 @@ export default function HackathonPage() {
                             {
                                 isRegistered ?
                                     (<>
-                                        <motion.button
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 text-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition duration-300 cursor-none"
-                                        >
-                                            Registered
-                                        </motion.button>
+                                        {
+                                            isSubmitted ?
+                                                (<>
+                                                    <motion.button
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 text-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition duration-300 cursor-pointer"
+                                                    >
+                                                        Wait for Result
+                                                    </motion.button>
+                                                </>) :
+                                                (<a href='https://docs.google.com/forms/d/e/1FAIpQLSekGGFAgMurY9BXV8asEAhXxcBTCwa53npWGw34fgxVwSep_w/viewform?usp=sf_link' target='_blank'>
+                                                    <motion.button
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                        className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg mt-8 text-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition duration-300 cursor-pointer"
+                                                    >
+                                                        Submit Code
+                                                    </motion.button>
+                                                </a>)
+                                        }
                                     </>) :
                                     (<>
                                         <motion.button

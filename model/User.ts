@@ -2,7 +2,8 @@ import mongoose, { Schema, Document } from 'mongoose';
 
 export interface User extends Document {
     email: string;
-    status: boolean;
+    isRegister: boolean;
+    isSubmit: boolean;
 }
 
 const UserSchema: Schema<User> = new Schema({
@@ -10,8 +11,13 @@ const UserSchema: Schema<User> = new Schema({
         type: String,
         required: [true, "Username is required"]
     },
-    status: {
+    isRegister: {
         type: Boolean,
+        default: false
+    },
+    isSubmit: {
+        type: Boolean,
+        default: false
     }
 })
 

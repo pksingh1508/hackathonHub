@@ -6,32 +6,33 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import axios from "axios"
-import { useUser } from "@clerk/nextjs"
 import { toast } from "@/hooks/use-toast"
 import { useRouter } from "next/navigation"
+import { useStore } from "@/store/useStore"
 
 export default function HackathonRegistration() {
     const [currentStep, setCurrentStep] = useState(1)
-    const { user } = useUser();
-    const email = user?.primaryEmailAddress?.emailAddress;
+    const { email, isRegistered } = useStore();
     const router = useRouter();
 
     const handleRegister = async () => {
         const response = await axios.post(`/api/register-user`, {
             email: email,
-            status: true
+            isRegister: true,
+            isSubmit: false
         })
         if (response.status === 200) {
             toast({
                 variant: "destructive",
-                title: "Registration",
+                title: "Registration Success 👋",
                 description: "You are successfully registered"
             })
             router.push('/');
         }
         if (response.status === 500) {
             toast({
-                title: "Registration",
+                variant: "destructive",
+                title: "Registration failed",
                 description: "Some issue has occurred"
             })
         }
@@ -84,6 +85,16 @@ export default function HackathonRegistration() {
 
     const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, steps.length))
     const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1))
+
+    if (isRegistered) {
+        return (
+            <div className="w-full h-full">
+                <div className="flex items-center justify-center mt-10 text-gray-200 font-semibold">
+                    <p>You are Registered in the Hackathons 👍</p>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-primary to-secondary p-4 flex items-center justify-center">

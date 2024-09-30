@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import HeroLogo from "../assets/myHero.jpg";
 import { useRouter } from 'next/navigation';
+import { AnimatedTools } from "./AnimatedTools";
 
 export default function LandingPage() {
     const router = useRouter();
@@ -32,11 +33,13 @@ export default function LandingPage() {
                         <br />
                         <span>Build, submit, and win amazing prizes.</span>
                     </p>
-                    <Button onClick={() => router.push('/hackathons')} size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105">
-                        Get Started
-                    </Button>
 
-                    <motion.div className="mt-12" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeOut' }}>
+
+                    <div className="">
+                        <AnimatedTools />
+                    </div>
+
+                    <motion.div className="mt-3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: 'easeOut' }}>
                         <div className="flex justify-center items-center space-x-1 mb-2">
                             {[...Array(5)].map((_, i) => (
                                 <StarIcon key={i} className="w-5 h-5 fill-current text-yellow-400" />
@@ -44,6 +47,10 @@ export default function LandingPage() {
                         </div>
                         <p className="text-sm text-gray-400">Trusted by 2000+ participants</p>
                     </motion.div>
+                    <Button onClick={() => router.push('/hackathons')} size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105 mt-5">
+                        Get Started
+                    </Button>
+
                 </motion.div>
             </main>
 

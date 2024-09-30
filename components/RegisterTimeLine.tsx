@@ -33,7 +33,7 @@ const timelineSteps = [
 
 const RegisterTimeLine = () => {
     return (
-        <div className="bg-gray-900 py-16">
+        <div className="bg-[#070808] py-16">
             <div className="container mx-auto px-4 max-w-6xl">
                 <h2 className="text-4xl font-bold text-center mb-12 text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                     How It Works
