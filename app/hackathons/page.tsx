@@ -28,7 +28,7 @@ const hackathons: Hackathon[] = [
     {
         id: 1,
         title: "Code for Bharat",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        image: "https://i.ibb.co/ChDfqsJ/CODE-FOR-BHARAT.png",  // Replace with appropriate image URL
         daysLeft: 10,
         isOnline: true,
         prize: 50000,
@@ -37,7 +37,7 @@ const hackathons: Hackathon[] = [
         endDate: "Oct 25, 2024",
         organizer: "NITI Aayog",
         tags: ["Civic Tech", "Government", "Social Impact"],
-        sponsor: "Indian Government",
+        sponsor: "Private Organization",
         status: 'upcoming'
     },
     {
@@ -52,19 +52,18 @@ const hackathons: Hackathon[] = [
         endDate: "Sep 15, 2024",
         organizer: "Ethereum Foundation",
         tags: ["Blockchain", "Cryptocurrency", "DeFi"],
-        status: 'ongoing',
-        url: "/hackathons/web3"
+        status: 'upcoming'
     },
     {
         id: 3,
         title: "Digital Dharma Hackathon",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        image: "https://i.ibb.co/RNYL3JD/DIGITAL-DHARMA-HACKATHON.png",  // Replace with appropriate image URL
         daysLeft: 5,
         isOnline: true,
-        prize: 30000,
-        participants: 1200,
-        startDate: "Sep 25, 2024",
-        endDate: "Oct 05, 2024",
+        prize: 10000,
+        participants: 200,
+        startDate: "July 25, 2024",
+        endDate: "Sep 05, 2024",
         organizer: "Religious Tech Foundation",
         tags: ["Spirituality", "Tech for Good", "AI"],
         sponsor: "Art of Living",
@@ -73,7 +72,7 @@ const hackathons: Hackathon[] = [
     {
         id: 4,
         title: "TechMela: Build for Billions",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        image: "https://i.ibb.co/wwMwTxS/DIGITAL-DHARMA-HACKATHON-1.png",  // Replace with appropriate image URL
         daysLeft: 15,
         isOnline: true,
         prize: 80000,
@@ -82,73 +81,31 @@ const hackathons: Hackathon[] = [
         endDate: "Nov 01, 2024",
         organizer: "Digital India",
         tags: ["Scalability", "Consumer Tech", "FinTech"],
-        sponsor: "Reliance Jio",
+        sponsor: "remoteintern.in",
         status: 'upcoming'
     },
+
     {
         id: 5,
-        title: "Jugaad Junction",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
-        daysLeft: 7,
+        title: "Desi Dev Con",
+        image: "https://i.ibb.co/5MsfZKh/hta0-Ywg-ASJui2-VTNMOXh-QA.webp",  // Replace with appropriate image URL
+        daysLeft: 12,
         isOnline: true,
-        prize: 40000,
-        participants: 1500,
-        startDate: "Sep 30, 2024",
-        endDate: "Oct 10, 2024",
-        organizer: "Startup Village",
-        tags: ["Innovation", "Frugal Tech", "DIY Solutions"],
-        sponsor: "Tata Motors",
-        status: 'upcoming'
+        prize: 10000,
+        participants: 90,
+        startDate: "Oct 20, 2024",
+        endDate: "Nov 30, 2024",
+        organizer: "Open-Source Community",
+        tags: ["Software Development", "Open Source", "Community"],
+        sponsor: "Open-Source",
+        status: 'ongoing',
+        url: "/hackathons/desidevcon"
     },
+
     {
         id: 6,
-        title: "Bharat Brain Trust",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
-        daysLeft: 25,
-        isOnline: false,
-        prize: 90000,
-        participants: 5000,
-        startDate: "Nov 15, 2024",
-        endDate: "Dec 01, 2024",
-        organizer: "IIT Madras",
-        tags: ["AI", "Research", "Deep Tech"],
-        sponsor: "Google Research India",
-        status: 'finished'
-    },
-    {
-        id: 7,
-        title: "Desi Dev Con",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
-        daysLeft: 12,
-        isOnline: false,
-        prize: 70000,
-        participants: 2500,
-        startDate: "Oct 20, 2024",
-        endDate: "Oct 30, 2024",
-        organizer: "Tech Mahindra",
-        tags: ["Software Development", "Open Source", "Community"],
-        sponsor: "Tech Mahindra",
-        status: 'upcoming'
-    },
-    {
-        id: 8,
-        title: "Swadeshi Solutions Sprint",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
-        daysLeft: 30,
-        isOnline: true,
-        prize: 60000,
-        participants: 3000,
-        startDate: "Nov 10, 2024",
-        endDate: "Dec 01, 2024",
-        organizer: "Swadeshi Jagran Manch",
-        tags: ["Local Solutions", "Indigenous Tech", "Made in India"],
-        sponsor: "Make in India",
-        status: 'finished'
-    },
-    {
-        id: 9,
         title: "Incredible India Innovators",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
+        image: "https://i.ibb.co/RgzVCg1/INCREDIBLE.png",  // Replace with appropriate image URL
         daysLeft: 20,
         isOnline: false,
         prize: 85000,
@@ -159,21 +116,6 @@ const hackathons: Hackathon[] = [
         tags: ["Tourism", "AR/VR", "Cultural Tech"],
         sponsor: "Incredible India",
         status: 'upcoming'
-    },
-    {
-        id: 10,
-        title: "Samriddhi Hackathon",
-        image: "https://i.ibb.co/St3Vwhv/web3.png",  // Replace with appropriate image URL
-        daysLeft: 5,
-        isOnline: true,
-        prize: 75000,
-        participants: 3000,
-        startDate: "Sep 20, 2024",
-        endDate: "Oct 01, 2024",
-        organizer: "Samriddhi Ventures",
-        tags: ["FinTech", "Blockchain", "Financial Inclusion"],
-        sponsor: "ICICI Bank",
-        status: 'finished'
     }
 ];
 

@@ -42,6 +42,11 @@ export default function LandingPage() {
                         </div>
                         <p className="text-sm text-gray-400">Trusted by 2000+ participants</p>
                     </motion.div>
+
+                    <Button onClick={() => router.push('/problems')} size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105 mt-5">
+                        Problems List
+                    </Button>
+                    <br />
                     <Button onClick={() => router.push('/hackathons')} size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105 mt-5">
                         Get Started
                     </Button>
