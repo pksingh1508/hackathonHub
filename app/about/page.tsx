@@ -16,13 +16,7 @@ const AboutPage = () => {
     const router = useRouter();
     return (
         <div className="min-h-screen bg-black text-white font-sans relative overflow-hidden">
-            {/* Dotted background */}
-            {/* <div className="fixed inset-0 z-0 opacity-20">
-                <div className="absolute inset-0" style={{
-                    backgroundImage: `radial-gradient(circle, #ffffff 1px, transparent 1px)`,
-                    backgroundSize: '30px 30px'
-                }}></div>
-            </div> */}
+
 
             <Navbar />
             <main className="container mx-auto px-4 py-16 max-w-6xl mt-6 relative z-10">

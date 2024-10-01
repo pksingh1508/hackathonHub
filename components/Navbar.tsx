@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import logo from "../assets/hhlogo.png";
+import logo from "../assets/logo.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
@@ -43,8 +43,8 @@ export default function Navbar() {
             transition={{ duration: 0.4 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-md py-4 px-6 md:px-12 flex justify-between items-center max-w-6xl mx-auto ${isScrolled ? 'bg-black/80 backdrop-blur-sm' : ''}`}
         >
-            <div className="flex items-center gap-2">
-                <div className="bg-white rounded-full flex items-center justify-center">
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => { router.push("/") }}>
+                <div className="">
                     <Image src={logo} alt="Logo" className="h-10 w-10 m-auto p-1" />
                 </div>
                 <span className="text-xl font-bold text-[#e6eaeb]">HackathonHub</span>

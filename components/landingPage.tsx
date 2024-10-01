@@ -12,16 +12,11 @@ export default function LandingPage() {
 
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden">
-            {/* Dotted background */}
-            {/* <div className="fixed inset-0 z-0 opacity-20">
-                <div className="absolute inset-0" style={{
+            <main className="container mx-auto px-4 pt-40 pb-20 text-center relative z-10">
+                <div className="absolute inset-0 z-0 h-screen" style={{
                     backgroundImage: `radial-gradient(circle, #ffffff 1px, transparent 1px)`,
                     backgroundSize: '30px 30px'
                 }}></div>
-            </div> */}
-
-
-            <main className="container mx-auto px-4 pt-40 pb-20 text-center relative z-10">
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: 'easeOut' }}>
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                         Transform Your Ideas with
@@ -57,7 +52,7 @@ export default function LandingPage() {
             <div className="container mx-auto px-4 py-12 relative z-10 max-w-6xl">
                 <div className="relative group">
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                    <div className="relative h-80 md:h-96 mt-8">
+                    <div className="relative h-96 md:h-96 mt-8">
                         <Image
                             src={HeroLogo}
                             alt="Hackathon participants"
