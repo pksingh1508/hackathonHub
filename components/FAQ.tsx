@@ -48,7 +48,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                 className="flex justify-between items-center w-full py-5 text-left"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <span className="text-lg font-semibold text-gray-800">{question}</span>
+                <span className="text-lg font-semibold text-[#979797]">{question}</span>
                 <ChevronDownIcon
                     className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${isOpen ? 'transform rotate-180' : ''
                         }`}
@@ -66,7 +66,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
                         }}
                         transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                     >
-                        <div className="pb-5 text-gray-600">
+                        <div className="pb-5 text-[#979797]">
                             {answer}
                         </div>
                     </motion.div>
@@ -78,9 +78,9 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 
 export default function FAQ() {
     return (
-        <div className="bg-gradient-to-br from-gray-900 to-black-700 min-h-screen flex items-center justify-center p-4">
-            <div className="bg-white rounded-xl shadow-2xl max-w-3xl w-full p-8 my-7">
-                <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Frequently Asked Questions</h2>
+        <div className="bg-[#101010] min-h-screen flex items-center justify-center p-4">
+            <div className="bg-[#1e1d1c] rounded-xl shadow-2xl max-w-3xl w-full p-8 my-7 border-[#383838] border">
+                <h2 className="text-3xl font-bold text-center mb-8 text-[#e6e6e6]">Frequently Asked Questions</h2>
                 <div className="space-y-4">
                     {faqs.map((faq, index) => (
                         <FAQItem key={index} question={faq.question} answer={faq.answer} />

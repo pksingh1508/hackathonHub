@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const ChooseUs = () => {
     return (
 
-        <main className="bg-[#070808] text-white dark:bg-gray-900 dark:text-white my-10">
+        <main className="bg-[#101010] text-white py-10">
             <motion.div
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -21,18 +21,18 @@ const ChooseUs = () => {
                     transition={{ delay: 1.2, duration: 0.8 }}
                     className="text-center"
                 >
-                    <h2 className="text-4xl font-semibold mb-12">Why Choose Us?</h2>
+                    <h2 className="text-4xl font-semibold mb-12 text-[#d4d4d4]">Why Choose Us?</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {features.map((feature, index) => (
                             <motion.div
                                 key={index}
-                                className="bg-white bg-opacity-10 p-8 rounded-lg shadow-xl flex flex-col "
+                                className="bg-[#1e1d1c] p-8 rounded-lg shadow-xl flex flex-col border-[#383838] border"
                                 whileHover={{ scale: 1.05 }}
                                 transition={{ type: "spring", stiffness: 300 }}
                             >
                                 <FontAwesomeIcon icon={feature.icon} className="text-4xl mb-4 text-purple-400" />
-                                <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-                                <p className="text-gray-300">{feature.description}</p>
+                                <h3 className="text-xl font-semibold mb-4 text-[#c4c4c4]">{feature.title}</h3>
+                                <p className="text-[#979797]">{feature.description}</p>
                             </motion.div>
                         ))}
                     </div>

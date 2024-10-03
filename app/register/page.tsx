@@ -53,7 +53,7 @@ export default function HackathonRegistration() {
             title: "Pay Registration Fee",
             content: (
                 <div className="text-center">
-                    <Button onClick={() => alert("Redirecting to payment gateway...")}>
+                    <Button onClick={() => alert("Redirecting to payment gateway...")} className="border border-[#383838] text-[#d6d6d6]">
                         Pay Registration Fee
                     </Button>
                 </div>
@@ -64,7 +64,7 @@ export default function HackathonRegistration() {
             content: (
                 <div className="text-center">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6O1V4vx5uUu2ykkooV2u4KzjzS_OVkPl8D7WtsVMcxkd9-g/viewform?usp=sf_link" target="_blank">
-                        <Button>
+                        <Button className="border border-[#383838] text-[#d6d6d6]">
                             Fill the Form
                         </Button>
                     </a>
@@ -75,7 +75,7 @@ export default function HackathonRegistration() {
             title: "Complete Registration",
             content: (
                 <div className="text-center">
-                    <Button onClick={handleRegister}>
+                    <Button onClick={handleRegister} className="border border-[#383838] text-[#d6d6d6]">
                         Register for Hackathon
                     </Button>
                 </div>
@@ -97,10 +97,10 @@ export default function HackathonRegistration() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-primary to-secondary p-4 flex items-center justify-center">
+        <div className="min-h-screen bg-[#101010] p-4 flex items-center justify-center">
             <Card className="w-full max-w-3xl">
                 <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-center">
+                    <CardTitle className="text-2xl font-bold text-center text-[#d6d6d6]">
                         Hackathon Registration
                     </CardTitle>
                     <div className="flex justify-center space-x-2 mt-4">
@@ -108,7 +108,7 @@ export default function HackathonRegistration() {
                             <motion.div
                                 key={index}
                                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${index + 1 === currentStep
-                                    ? "bg-primary text-primary-foreground"
+                                    ? "bg-orange-600 text-primary-foreground"
                                     : "bg-muted text-muted-foreground"
                                     }`}
                                 animate={{
@@ -128,8 +128,9 @@ export default function HackathonRegistration() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.3 }}
+                            className="text-[#afaeae]"
                         >
-                            <h2 className="text-xl font-semibold mb-4">{steps[currentStep - 1].title}</h2>
+                            <h2 className="text-xl font-normal mb-4 text-[#d6d6d6]">{steps[currentStep - 1].title}</h2>
                             {steps[currentStep - 1].content}
                         </motion.div>
                     </AnimatePresence>
@@ -138,13 +139,14 @@ export default function HackathonRegistration() {
                     <Button
                         onClick={prevStep}
                         disabled={currentStep === 1}
-                        variant="outline"
+                        className={`border border-[#383838] text-[#d6d6d6]`}
                     >
                         <ChevronLeft className="mr-2 h-4 w-4" /> Previous
                     </Button>
                     <Button
                         onClick={nextStep}
                         disabled={currentStep === steps.length}
+                        className="border border-[#383838] text-[#d6d6d6]"
                     >
                         Next <ChevronRight className="ml-2 h-4 w-4" />
                     </Button>

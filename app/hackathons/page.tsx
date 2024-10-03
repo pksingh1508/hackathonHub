@@ -126,7 +126,7 @@ const HackathonCard = ({ hackathon, router }: { hackathon: Hackathon, router: Re
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.3 }}
-        className={`bg-white rounded-lg shadow-md overflow-hidden ${hackathon.status === 'ongoing' ? 'cursor-pointer' : ''}`}
+        className={`bg-[#1e1d1c] rounded-lg shadow-md overflow-hidden border border-[#383838] ${hackathon.status === 'ongoing' ? 'cursor-pointer' : ''}`}
         onClick={() => {
             if (hackathon.status === 'ongoing') {
                 router.push(`${hackathon.url}`);
@@ -149,6 +149,7 @@ const HackathonCard = ({ hackathon, router }: { hackathon: Hackathon, router: Re
                 alt={hackathon.title}
                 layout="fill"
                 objectFit="cover"
+                className='hover:scale-105 transition-all duration-150'
             />
             <div className={`absolute top-2 left-2 px-2 py-1 rounded-full text-sm font-semibold text-white ${hackathon.status === 'upcoming' ? 'bg-green-500' :
                 hackathon.status === 'ongoing' ? 'bg-blue-500' : 'bg-red-500'
@@ -163,26 +164,26 @@ const HackathonCard = ({ hackathon, router }: { hackathon: Hackathon, router: Re
             )}
         </div>
         <div className="p-4">
-            <h2 className="text-xl font-bold mb-2 text-black/80">{hackathon.title}</h2>
-            <div className="flex items-center text-gray-600 mb-2">
+            <h2 className="text-xl font-bold mb-2 text-[#d6d6d6]">{hackathon.title}</h2>
+            <div className="flex items-center text-[#afaeae] mb-2">
                 <GlobeAltIcon className="h-5 w-5 mr-1" />
                 <span>{hackathon.isOnline ? 'Online' : 'In-person'}</span>
             </div>
-            <div className="flex justify-between text-sm text-gray-600 mb-2">
+            <div className="flex justify-between text-sm text-[#afaeae] mb-2">
                 <div>₹ {hackathon.prize.toLocaleString()} in prizes</div>
                 <div>{hackathon.participants.toLocaleString()} participants</div>
             </div>
-            <div className="flex items-center text-sm text-gray-600 mb-2">
+            <div className="flex items-center text-sm text-[#afaeae] mb-2">
                 <CalendarIcon className="h-5 w-5 mr-1" />
                 <span>{hackathon.startDate} - {hackathon.endDate}</span>
             </div>
-            <div className="flex items-center text-sm text-gray-600 mb-2">
+            <div className="flex items-center text-sm text-[#afaeae] mb-2">
                 <UserGroupIcon className="h-5 w-5 mr-1" />
                 <span>Managed by {hackathon.organizer}</span>
             </div>
             <div className="flex flex-wrap gap-2 mt-2">
                 {hackathon.tags.map((tag, index) => (
-                    <span key={index} className="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs">
+                    <span key={index} className="bg-[#101010] border border-[#383838] text-[#cccccc] px-2 py-1 rounded-full text-xs">
                         {tag}
                     </span>
                 ))}
@@ -198,7 +199,7 @@ export default function HackathonList() {
     const router = useRouter();
 
     return (
-        <div className="bg-black/80 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#101010] min-h-screen py-12 px-4 sm:px-6 lg:px-8">
             <Navbar />
             <div className="max-w-6xl mx-auto mt-5">
                 {/* <h1 className="text-4xl font-bold text-center mb-8">Hackathons</h1> */}
@@ -211,7 +212,7 @@ export default function HackathonList() {
                                 onClick={() => setActiveTab(tab.toLowerCase() as 'finished' | 'ongoing' | 'upcoming')}
                                 className={`px-4 py-2 text-sm font-medium ${activeTab === tab.toLowerCase()
                                     ? 'bg-blue-600 text-white'
-                                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                                    : 'bg-[#1e1d1c] text-[#cccccc] hover:bg-[#494948]'
                                     } ${tab === 'Finished' ? 'rounded-l-lg' :
                                         tab === 'Upcoming' ? 'rounded-r-lg' : ''
                                     }`}

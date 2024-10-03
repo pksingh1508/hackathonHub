@@ -39,9 +39,9 @@ export default function Problems() {
         : problems.filter(problem => problem.category === selectedCategory)
 
     return (
-        <div className="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-[#101010] py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                <h1 className="text-4xl font-bold text-center mb-8 text-gray-100">Hackathon Problems</h1>
+                <h1 className="text-4xl font-bold text-center mb-8 text-[#d6d6d6]">Hackathon Problems</h1>
 
                 <div className="flex flex-wrap justify-center gap-4 mb-8">
                     {categories.map((category) => (
@@ -49,8 +49,8 @@ export default function Problems() {
                             key={category}
                             onClick={() => setSelectedCategory(category)}
                             className={`px-4 py-2 rounded-full ${selectedCategory === category
-                                    ? 'bg-blue-500 text-white'
-                                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                                ? 'bg-orange-700 text-white'
+                                : 'bg-[#1e1d1c] text-[#cccccc] hover:bg-[#494948] border border-[#383838]'
                                 } transition-colors duration-200`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -71,11 +71,11 @@ export default function Problems() {
                             key={problem.id}
                             layoutId={`problem-${problem.id}`}
                             onClick={() => setExpandedProblem(expandedProblem === problem.id ? null : problem.id)}
-                            className="bg-gray-800 rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow duration-200"
+                            className="bg-[#1e1d1c] border border-[#383838] rounded-lg shadow-md p-6 cursor-pointer hover:shadow-lg transition-shadow duration-200"
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.98 }}
                         >
-                            <h2 className="text-xl font-semibold mb-2 text-gray-100">{problem.title}</h2>
+                            <h2 className="text-xl font-semibold mb-2 text-[#d6d6d6]">{problem.title}</h2>
                             <p className="text-gray-400 mb-4">{problem.category}</p>
                             <AnimatePresence>
                                 {expandedProblem === problem.id && (
@@ -84,7 +84,7 @@ export default function Problems() {
                                         animate={{ opacity: 1, height: 'auto' }}
                                         exit={{ opacity: 0, height: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="text-gray-300"
+                                        className="text-[#afaeae]"
                                     >
                                         {problem.description}
                                     </motion.p>

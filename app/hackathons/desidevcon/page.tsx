@@ -100,7 +100,7 @@ const AnimatedSection = ({ title, children }: { title: string, children: React.R
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-lg shadow-md p-6 mb-8"
+            className="bg-[#1e1d1c] border border-[#383838] text-[#d6d6d6] rounded-lg shadow-md p-6 mb-8"
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -144,14 +144,14 @@ export default function HackathonPage() {
     }
 
     return (
-        <div className="bg-gradient-to-br from-black/50 to-black/80 min-h-screen text-black/80">
-            <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="bg-[#101010] min-h-screen text-black/80">
+            <header className="bg-[#1e1d1c] text-[#9a9a9c] border-b border-[#383838]">
                 <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-5xl font-bold mb-4"
+                        className="text-5xl font-bold mb-4 text-[#d7d7d8]"
                     >
                         {hackathon.title}
                     </motion.h1>
@@ -184,16 +184,16 @@ export default function HackathonPage() {
                         </motion.div>
 
                         <AnimatedSection title="About the Hackathon">
-                            <p className="text-gray-700 mt-4">{hackathon.description}</p>
+                            <p className="text-[#7f8188] mt-4">{hackathon.description}</p>
                         </AnimatedSection>
 
                         <AnimatedSection title="What to Build">
-                            <p className="text-gray-700 mt-4">{hackathon.whatToBuild.description}</p>
+                            <p className="text-[#7f8188] mt-4">{hackathon.whatToBuild.description}</p>
                             <div className="mt-4 space-y-4">
                                 {hackathon.whatToBuild.tracks.map((track, index) => (
-                                    <div key={index} className="bg-gray-100 p-4 rounded-lg">
+                                    <div key={index} className="bg-[#1a1918] border border-[#383838] p-4 rounded-lg">
                                         <h3 className="font-semibold text-lg mb-2">{track.name}</h3>
-                                        <p className="text-gray-700">{track.description}</p>
+                                        <p className="text-[#7f8188]">{track.description}</p>
                                     </div>
                                 ))}
                             </div>
@@ -202,16 +202,16 @@ export default function HackathonPage() {
                         <AnimatedSection title="What to Submit">
                             <ul className="list-disc list-inside space-y-2 mt-4">
                                 {hackathon.whatToSubmit.map((item, index) => (
-                                    <li key={index} className="text-gray-700">{item}</li>
+                                    <li key={index} className="text-[#7f8188]">{item}</li>
                                 ))}
                             </ul>
                         </AnimatedSection>
 
                         <AnimatedSection title="Community Engagement">
-                            <p className="text-gray-700 mt-4">{hackathon.communityEngagement.description}</p>
+                            <p className="text-[#7f8188] mt-4">{hackathon.communityEngagement.description}</p>
                             <ul className="list-disc list-inside space-y-2 mt-4">
                                 {hackathon.communityEngagement.activities.map((activity, index) => (
-                                    <li key={index} className="text-gray-700">{activity}</li>
+                                    <li key={index} className="text-[#7f8188]">{activity}</li>
                                 ))}
                             </ul>
                         </AnimatedSection>
@@ -221,8 +221,8 @@ export default function HackathonPage() {
                                 {hackathon.timeline.map((item, index) => (
                                     <li key={index} className="flex items-center">
                                         <ClockIcon className="h-6 w-6 text-blue-500 mr-2" />
-                                        <span className="font-semibold mr-2">{item.date}:</span>
-                                        <span>{item.event}</span>
+                                        <span className="font-semibold mr-2 text-[#b9babb]">{item.date}:</span>
+                                        <span className='text-[#7f8188]'>{item.event}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -231,7 +231,7 @@ export default function HackathonPage() {
                         <AnimatedSection title="Rules">
                             <ul className="list-disc list-inside space-y-2 mt-4">
                                 {hackathon.rules.map((rule, index) => (
-                                    <li key={index} className="text-gray-700">{rule}</li>
+                                    <li key={index} className="text-[#7f8188]">{rule}</li>
                                 ))}
                             </ul>
                         </AnimatedSection>
@@ -239,11 +239,11 @@ export default function HackathonPage() {
                         <AnimatedSection title="Prizes">
                             <div className="space-y-4 mt-4">
                                 {hackathon.prizes.map((prize, index) => (
-                                    <div key={index} className="flex items-center bg-gradient-to-r from-yellow-100 to-yellow-200 p-4 rounded-lg">
+                                    <div key={index} className="flex items-center bg-[#161515] border border-[#383838] p-4 rounded-lg">
                                         <CurrencyRupeeIcon className="h-8 w-8 text-yellow-500 mr-4" />
                                         <div>
                                             <h3 className="font-semibold text-lg">{prize.place}</h3>
-                                            <p className="text-gray-700">₹ {prize.amount.toLocaleString()} - {prize.description}</p>
+                                            <p className="text-[#a7a5a5]">₹ {prize.amount.toLocaleString()} - {prize.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -253,7 +253,7 @@ export default function HackathonPage() {
                         <AnimatedSection title="Judges">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                 {hackathon.judges.map((judge, index) => (
-                                    <div key={index} className="flex items-center bg-gray-100 p-4 rounded-lg">
+                                    <div key={index} className="flex items-center bg-[#161515] border border-[#383838] p-4 rounded-lg">
                                         <UserGroupIcon className="h-8 w-8 text-blue-500 mr-4" />
                                         <div>
                                             <h3 className="font-semibold">{judge.name}</h3>
@@ -270,10 +270,10 @@ export default function HackathonPage() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="bg-white rounded-lg shadow-md p-6 mb-8 sticky top-8"
+                            className="bg-[#161515] border border-[#383838] rounded-lg shadow-md p-6 mb-8 sticky top-8 text-[#d6d6d6]"
                         >
                             <h2 className="text-2xl font-bold mb-6 text-center">Hackathon Details</h2>
-                            <ul className="space-y-6">
+                            <ul className="space-y-6 text-[#9e9e9e]">
                                 <li className="flex items-center">
                                     <CalendarIcon className="h-8 w-8 text-blue-500 mr-4" />
                                     <span className="text-lg">{hackathon.startDate} - {hackathon.endDate}</span>
@@ -291,15 +291,15 @@ export default function HackathonPage() {
                                     <span className="text-lg">{hackathon.participants.toLocaleString()} participants</span>
                                 </li>
                             </ul>
-                            <div className="mt-8">
+                            <div className="mt-8 text-[#9e9e9e]">
                                 <h3 className="font-semibold mb-2 text-center">Organized by</h3>
                                 <p className="text-center text-lg">{hackathon.organizer}</p>
                             </div>
-                            <div className="mt-8">
+                            <div className="mt-8 text-[#9e9e9e]">
                                 <h3 className="font-semibold mb-4 text-center">Sponsored by</h3>
                                 <div className="flex flex-wrap justify-center gap-4">
                                     {hackathon.sponsors.map((sponsor, index) => (
-                                        <span key={index} className="bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-lg font-semibold">
+                                        <span key={index} className="bg-[#161515] border border-[#383838] text-[#9e9e9e] px-4 py-2 rounded-full text-lg font-semibold">
                                             {sponsor}
                                         </span>
                                     ))}

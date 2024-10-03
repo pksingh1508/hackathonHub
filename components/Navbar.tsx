@@ -41,26 +41,26 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-md py-4 px-6 md:px-12 flex justify-between items-center max-w-6xl mx-auto ${isScrolled ? 'bg-black/80 backdrop-blur-sm' : ''}`}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 shadow-md py-4 px-6 md:px-12 flex justify-between items-center max-w-6xl mx-auto ${isScrolled ? 'bg-[#1e1d1c] rounded-lg border-[#383838] border-b' : ''}`}
         >
             <div className="flex items-center gap-2 cursor-pointer" onClick={() => { router.push("/") }}>
                 <div className="">
                     <Image src={logo} alt="Logo" className="h-10 w-10 m-auto p-1" />
                 </div>
-                <span className="text-xl font-bold text-[#e6eaeb]">HackathonHub</span>
+                <span className="text-xl font-bold text-[#cccccc]">HackathonHub</span>
             </div>
             <div className="hidden md:flex items-center space-x-4 ">
-                <Button className="text-white font-normal text-[18px]" variant="link" onClick={() => router.push('/')}>Home</Button>
-                <Button className="text-white font-normal text-[18px]" variant="link" onClick={() => router.push('/about')}>About</Button>
-                <Button className="text-white font-normal text-[18px]" variant="link" onClick={() => router.push('/hackathons')}>Hackathons</Button>
+                <Button className="text-[#cccccc] font-normal text-[18px]" variant="link" onClick={() => router.push('/')}>Home</Button>
+                <Button className="text-[#cccccc] font-normal text-[18px]" variant="link" onClick={() => router.push('/about')}>About</Button>
+                <Button className="text-[#cccccc] font-normal text-[18px]" variant="link" onClick={() => router.push('/hackathons')}>Hackathons</Button>
             </div>
             <div className="hidden md:flex items-center space-x-4 ">
                 {
                     isSignedIn ? (<UserButton />) : (<div className="flex items-center space-x-4">
-                        <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105" onClick={() => router.push('/sign-in')}>
+                        <Button size="lg" className="bg-[#1e1d1c] border border-[#383838] text-[#d6d6d6] transition-all duration-300 transform hover:scale-105" onClick={() => router.push('/sign-in')}>
                             Sign In
                         </Button>
-                        <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transition-all duration-300 transform hover:scale-105" onClick={() => router.push('/sign-up')}>Sign Up</Button>
+                        <Button size="lg" className="bg-[#1e1d1c] border border-[#383838] text-[#d6d6d6] transition-all duration-300 transform hover:scale-105" onClick={() => router.push('/sign-up')}>Sign Up</Button>
                     </div>)
                 }
             </div>

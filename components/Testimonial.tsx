@@ -90,10 +90,10 @@ export default function Testimonials() {
     }, [])
 
     return (
-        <div className="bg-gradient-to-br from-black/90 to-gray-800 min-h-screen flex items-center justify-center px-4 py-12">
-            <div className="max-w-4xl w-full bg-white rounded-xl shadow-2xl overflow-hidden">
+        <div className="bg-[#101010] min-h-screen flex items-center justify-center px-4 py-12">
+            <div className="max-w-4xl w-full bg-[#1e1d1c] rounded-xl shadow-2xl overflow-hidden border-[#383838] border">
                 <div className="p-8 md:p-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#e6e6e6]">
                         What Our Hackers Say
                     </h2>
                     <div className="relative h-[300px]">
@@ -107,7 +107,7 @@ export default function Testimonials() {
                                 className="text-center absolute inset-0 flex flex-col items-center justify-center"
                             >
                                 <FaQuoteLeft className="text-5xl text-purple-500 mb-4" />
-                                <p className="text-xl md:text-2xl text-gray-600 mb-6">
+                                <p className="text-xl md:text-2xl text-[#979797] mb-6">
                                     {testimonials[currentIndex].quote}
                                 </p>
                                 <div className="flex flex-col items-center">
@@ -115,7 +115,7 @@ export default function Testimonials() {
                                         <AvatarImage src={testimonials[currentIndex].avatar} alt={testimonials[currentIndex].name} />
                                         <AvatarFallback>{testimonials[currentIndex].name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                                     </Avatar>
-                                    <h3 className="text-xl font-semibold text-gray-800">
+                                    <h3 className="text-xl font-semibold text-[#dbdbdb]">
                                         {testimonials[currentIndex].name}
                                     </h3>
                                     <p className="text-gray-500">{testimonials[currentIndex].role}</p>

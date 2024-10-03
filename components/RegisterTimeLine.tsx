@@ -33,12 +33,12 @@ const timelineSteps = [
 
 const RegisterTimeLine = () => {
     return (
-        <div className="bg-[#070808] py-16">
+        <div className="bg-[#101010] py-16">
             <div className="container mx-auto px-4 max-w-6xl">
-                <h2 className="text-4xl font-bold text-center mb-12 text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                <h2 className="text-4xl font-bold text-center mb-12 text-[#e6e6e6]">
                     How It Works
                 </h2>
-                <div className="relative bg-white bg-opacity-10 p-8 rounded-lg shadow-xl">
+                <div className="relative bg-[#1e1d1c] p-8 rounded-lg shadow-xl border-[#383838] border">
                     {timelineSteps.map((step, index) => (
                         <motion.div
                             key={index}
@@ -53,13 +53,13 @@ const RegisterTimeLine = () => {
                                     <FontAwesomeIcon icon={step.icon} className="text-white text-xl" />
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-semibold mb-3 text-blue-400">{step.title}</h3>
-                                    <p className={`text-gray-300 leading-relaxed ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>{step.description}</p>
+                                    <h3 className="text-2xl font-semibold mb-3 text-[#e6e6e6]">{step.title}</h3>
+                                    <p className={`text-[#979797] leading-relaxed ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>{step.description}</p>
                                 </div>
                             </div>
                         </motion.div>
                     ))}
-                    <div className="absolute left-1/2 top-0 h-full w-0.5 bg-purple-500 hidden md:block" style={{ transform: 'translateX(-50%)' }}></div>
+                    <div className="absolute left-1/2 top-0 h-full w-0.5 bg-[#adadad] hidden md:block" style={{ transform: 'translateX(-50%)' }}></div>
                 </div>
             </div>
         </div>
