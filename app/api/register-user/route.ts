@@ -12,8 +12,9 @@ export async function POST(request: Request) {
         if (existingUser) {
             return Response.json({
                 success: true,
+                data: existingUser,
                 message: "User already registered",
-            }, { status: 400 })
+            }, { status: 200 })
         }
 
         const result = await UserModel.create({ email: email, isRegister: isRegister, isSubmit: isSubmit });
@@ -25,6 +26,7 @@ export async function POST(request: Request) {
         }
         return Response.json({
             status: true,
+            data: result,
             message: "Successfully created the user"
         }, { status: 200 })
 

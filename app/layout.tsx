@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ClerkProvider, GoogleOneTap } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react"
 
 import { Roboto } from 'next/font/google'
 
@@ -33,6 +34,7 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>

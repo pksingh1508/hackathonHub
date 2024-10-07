@@ -24,7 +24,8 @@ export default function Home() {
       if (email) {
         setEmail(email);
         try {
-          const response = await axios.post(`/api/get-user`, { email: email });
+          const response = await axios.post(`/api/register-user`, { email: email, isRegister: false, isSubmit: false });
+
           if (response.status === 200) {
             setIsRegistered(response.data.data.isRegister);
             setIsSubmitted(response.data.data.isSubmit);
