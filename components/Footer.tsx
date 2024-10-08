@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div className="text-center">
                         <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text inline-block">
-                            HackathonHub
+                            HackathonWallah
                         </h2>
                         <p className={`text-[#7f8188] mb-4`}>
                             Connecting innovators and empowering hackathons worldwide.
@@ -40,15 +40,15 @@ const Footer = () => {
                     <div className="text-center">
                         <h3 className="text-xl font-semibold mb-4 text-[#cccccc]">Connect With Us</h3>
                         <div className="flex justify-center space-x-6">
-                            <a href="https://github.com/hackathonhub" target="_blank" rel="noopener noreferrer"
+                            <a href="https://hackathonwallah.com" target="_blank" rel="noopener noreferrer"
                                 className="text-[#7f8188] hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
                                 <FaGithub size={28} />
                             </a>
-                            <a href="https://twitter.com/hackathonhub" target="_blank" rel="noopener noreferrer"
+                            <a href="https://hackathonwallah.com" target="_blank" rel="noopener noreferrer"
                                 className="text-[#7f8188] hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
                                 <FaTwitter size={28} />
                             </a>
-                            <a href="https://linkedin.com/company/hackathonhub" target="_blank" rel="noopener noreferrer"
+                            <a href="https://hackathonwallah.com" target="_blank" rel="noopener noreferrer"
                                 className="text-[#7f8188] hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
                                 <FaLinkedin size={28} />
                             </a>

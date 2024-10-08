@@ -21,7 +21,7 @@ export default function LandingPage() {
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-[#d6d6d6] to-[#797979]">
                         Transform Your Ideas with
                         <br />
-                        <span>HackathonHub</span>
+                        <span>HackathonWallah</span>
                     </h1>
                     <p className="text-lg sm:text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-[#7f8188]">
                         Participate in exciting online and offline hackathons!

@@ -27,10 +27,10 @@ const AboutPage = () => {
                     className="flex flex-col items-center justify-center min-h-[70vh] text-center mb-12"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 max-w-4xl">
-                        About HackathonHub
+                        About HackathonWallah
                     </h1>
                     <p className="text-xl mb-8 text-[#979797] font-medium leading-relaxed max-w-2xl">
-                        HackathonHub is the premier platform for connecting innovators, developers, and creative minds through exciting hackathon events. Our mission is to foster innovation, collaboration, and skill development in the tech community.
+                        HackathonWallah is the premier platform for connecting innovators, developers, and creative minds through exciting hackathon events. Our mission is to foster innovation, collaboration, and skill development in the tech community.
                     </p>
                 </motion.div>
 
@@ -47,7 +47,7 @@ const AboutPage = () => {
                         <div className="order-1">
                             <h2 className="text-3xl font-semibold mb-4 text-purple-400">Our Mission</h2>
                             <p className="text-[#7f8188] mb-4 leading-relaxed">
-                                At HackathonHub, our mission is to empower the next generation of innovators by providing a platform that:
+                                At HackathonWallah, our mission is to empower the next generation of innovators by providing a platform that:
                             </p>
                             <ul className="list-disc list-inside text-[#7f8188] mb-4 leading-relaxed">
                                 <li>Facilitates collaboration among diverse groups of talented individuals</li>
@@ -86,7 +86,7 @@ const AboutPage = () => {
                             We envision a world where innovation knows no bounds, and where passionate individuals can come together to solve real-world problems through technology.
                         </p>
                         <p className="text-[#7f8188] mb-4 leading-relaxed">
-                            HackathonHub aims to be the catalyst for groundbreaking ideas and the birthplace of tomorrow's tech leaders. We see a future where:
+                            HackathonWallah aims to be the catalyst for groundbreaking ideas and the birthplace of tomorrow's tech leaders. We see a future where:
                         </p>
                         <ul className="list-disc list-inside text-[#7f8188] mb-4 leading-relaxed">
                             <li>Every aspiring developer has access to cutting-edge hackathons</li>
@@ -137,7 +137,7 @@ const AboutPage = () => {
                 >
                     <h2 className="text-4xl font-semibold mb-8 text-[#d4d4d4]">Join Our Community</h2>
                     <p className="text-xl mb-8 text-gray-300 font-light">
-                        Ready to embark on your next hackathon adventure? <br /> Join HackathonHub today and be part of a thriving community of innovators!
+                        Ready to embark on your next hackathon adventure? <br /> Join HackathonWallah today and be part of a thriving community of innovators!
                     </p>
                     <Button onClick={() => router.push('/hackathons')} size="lg" className="bg-[#1e1d1c] border border-[#383838] text-[#d6d6d6] transition-all duration-300 transform hover:scale-105 text-lg px-8 py-3">
                         Get Started

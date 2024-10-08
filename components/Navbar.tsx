@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import logo from "../assets/logo.png";
+import logo from "../assets/mylogo2.png";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
@@ -47,7 +47,7 @@ export default function Navbar() {
                 <div className="">
                     <Image src={logo} alt="Logo" className="h-10 w-10 m-auto p-1" />
                 </div>
-                <span className="text-xl font-bold text-[#cccccc]">HackathonHub</span>
+                <span className="text-xl font-bold text-[#cccccc]">HackathonWallah</span>
             </div>
             <div className="hidden md:flex items-center space-x-4 ">
                 <Button className="text-[#cccccc] font-normal text-[18px]" variant="link" onClick={() => router.push('/')}>Home</Button>
@@ -72,7 +72,7 @@ export default function Navbar() {
                     </SheetTrigger>
                     <SheetContent>
                         <SheetHeader>
-                            <SheetTitle>Hackathon-Hub</SheetTitle>
+                            <SheetTitle>Hackathon-Wallah</SheetTitle>
                             <SheetDescription>
                                 <div className="flex flex-col mt-5 items-start gap-6">
                                     <Button className="text-white font-normal text-[18px]" variant="link" onClick={() => router.push('/')}>Home</Button>
