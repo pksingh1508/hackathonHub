@@ -12,6 +12,8 @@ import vision from '../../assets/vision.jpg'
 import mission from '../../assets/mission.jpg'
 import { useRouter } from 'next/navigation'
 
+
+
 const AboutPage = () => {
     const router = useRouter();
     return (

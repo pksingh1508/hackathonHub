@@ -13,8 +13,21 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "HackathonWallah",
-  description: "HackathonWallah is a platform for hackathons all over the world",
+  title: {
+    default: "HackathonWallah - Global Hackathons for Innovators & Coders",
+    template: "%s - HackathonWallah"
+  },
+  description: "Join HackathonWallah, the ultimate platform connecting coders, developers, and innovators with hackathons worldwide. Compete, learn, and grow your skills.",
+  twitter: {
+    card: "summary_large_image",
+    title: "HackathonWallah - Global Hackathons for Innovators",
+    description: "Discover and participate in hackathons worldwide with HackathonWallah. A one-stop platform for coders and developers looking to showcase their skills."
+  },
+  keywords: ["hackathons", "coding competitions", "developer events", "hackathon platform", "global hackathons", "programming challenges"],
+  openGraph: {
+    title: "HackathonWallah - Hackathons for Coders & Developers",
+    description: "Participate in global hackathons with HackathonWallah, where developers, coders, and tech enthusiasts connect and compete."
+  }
 };
 
 export default function RootLayout({
