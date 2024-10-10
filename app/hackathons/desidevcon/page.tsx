@@ -20,7 +20,7 @@ const hackathon = {
     endDate: "Nov 30, 2024",
     isOnline: true,
     prize: 10000,
-    participants: 90,
+    participants: 20,
     organizer: "Open-Source Community",
     sponsors: ["Open-Source"],
     tags: ["Software Development", "Open Source", "Community"],
@@ -43,7 +43,7 @@ const hackathon = {
         { place: "1st Place", amount: 5000, description: "Cash prize" },
         { place: "2nd Place", amount: 3000, description: "Cash prize" },
         { place: "3rd Place", amount: 2000, description: "Cash prize" },
-        { place: "4th - 10th", amount: 500, description: "T-shirt under Rs.500" },
+        { place: "4th - 10th", amount: 500, description: "tak ka Perks(tshirt, bottle, stickers)" },
     ],
     judges: [
         { name: "Arun Gupta", role: "Sen Software Engineer" },

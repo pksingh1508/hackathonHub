@@ -40,20 +40,20 @@ export default function HackathonRegistration() {
 
     const steps = [
         {
-            title: "Registration Steps [Pay amount -> Fill Google Form -> Complete Registration]",
+            title: "Registration Steps",
             content: (
                 <ol className="list-decimal list-inside space-y-2">
-                    <li>Pay the small amount of registration fees and take a screenshot of it.</li>
+                    <li>Pay the small 50 rupees amount of registration fees and take a screenshot of it.</li>
                     <li>Fill the Google form provided with screenshot.</li>
-                    <li>Register in the hackathon.</li>
+                    <li>Confirm Registration in the hackathon.</li>
                 </ol>
             ),
         },
         {
-            title: "Pay Registration Fee",
+            title: "Pay Registration Fee - [Rs 50]",
             content: (
                 <div className="text-center">
-                    <a href="https://razorpay.me/@edupvtltd?amount=CVDUr6Uxp2FOGZGwAHntNg%3D%3D" target="_blank">
+                    <a href="https://razorpay.me/@edupvtltd?amount=bMZtQmLjQWplBAmd%2FyQdEA%3D%3D" target="_blank">
                         <Button className="border border-[#383838] text-[#d6d6d6]">
                             Pay Registration Fee
                         </Button>
@@ -78,7 +78,7 @@ export default function HackathonRegistration() {
             content: (
                 <div className="text-center">
                     <Button onClick={handleRegister} className="border border-[#383838] text-[#d6d6d6]">
-                        Register for Hackathon
+                        Confirm Registration
                     </Button>
                 </div>
             ),

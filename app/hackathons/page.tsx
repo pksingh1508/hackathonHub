@@ -92,7 +92,7 @@ const hackathons: Hackathon[] = [
         daysLeft: 12,
         isOnline: true,
         prize: 10000,
-        participants: 90,
+        participants: 20,
         startDate: "Oct 20, 2024",
         endDate: "Nov 30, 2024",
         organizer: "Open-Source Community",
